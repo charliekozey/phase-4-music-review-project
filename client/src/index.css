@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  border: 1px solid;
+  border-color: red;
+}
+
+.navbar {
+  border: 1px solid;
+  border-color: red;
+}
+
+.home {
+  border: 1px solid;
+  border-color: red;
+  background-color: aqua;
+}
+
+.album-detail {
+  border: 1px solid;
+  border-color: red;
+}
+
+.carousel {
+  border: 1px solid;
+  border-color: red;
+}
+
+.friend-list {
+  border: 1px solid;
+  border-color: red;
+}
+
+.review-card {
+  border: 1px solid;
+  border-color: red;
+}
+
+.review-detail {
+  border: 1px solid;
+  border-color: red;
+}
+
+.review-list {
+  border: 1px solid;
+  border-color: red;
+}
+
+.reviews-container {
+  border: 1px solid;
+  border-color: red;
+}
+
+.user-profile {
+  border: 1px solid;
+  border-color: red;
+}
