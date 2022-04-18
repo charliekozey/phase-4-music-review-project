@@ -1,2 +1,0 @@
-class Spotify < ApplicationRecord
-end

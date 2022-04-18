@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :relationships
   resources :users
 
-  get "/queried_albums", to: "spotify#get_albums"
+  post "/queried_albums", to: "spotify#get_albums"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
