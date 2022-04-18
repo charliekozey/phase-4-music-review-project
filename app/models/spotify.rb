@@ -1,0 +1,2 @@
+class Spotify < ApplicationRecord
+end
