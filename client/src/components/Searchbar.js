@@ -31,13 +31,16 @@ export default function Searchbar() {
   useEffect(() => {
       if(isMounted.current){
         console.log(JSON.stringify({q: search}))
-        fetch('http://127.0.0.1:3000/queried_albums', {
+        fetch('/queried_albums', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({q: search})
         })
         .then(res => res.json())
-        .then(data =>setAlbums(formatResponse(data)))
+        .then(data =>{
+            console.log(data)
+            setAlbums(formatResponse(data))
+        })
         .catch(error => console.log(error))
       }else{
         isMounted.current = true
