@@ -13,8 +13,17 @@ code {
 }
 
 .header {
-  border: 1px solid;
-  border-color: red;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.log-in{
+  display: flex;
+  align-items: center;
+  width: 15%;
+  justify-content: space-around;
 }
 
 .navbar {
