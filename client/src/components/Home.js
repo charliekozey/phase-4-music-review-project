@@ -1,5 +1,5 @@
 import React from "react"
-import Carousel from "./Carousel"
+import CarouselDisplay from "./CarouselDisplay"
 import ReviewsContainer from "./ReviewsContainer"
 
 
@@ -7,7 +7,7 @@ function Home() {
     return (
         <div className="home">
             home
-            <Carousel />
+            <CarouselDisplay />
             <ReviewsContainer />
         </div>
     )
