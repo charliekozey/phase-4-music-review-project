@@ -10,7 +10,7 @@ export default function Searchbar() {
 
   const renderResults = albums.map(album => {
       return (
-          <SearchBarItem album={album} />
+          <SearchBarItem album={album} key={album.spotify_id} resetSearch={() => setSearch("")}/>
         )
   })
 
