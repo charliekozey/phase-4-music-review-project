@@ -45,6 +45,9 @@ code {
 .carousel {
   border: 1px solid;
   border-color: red;
+  max-width: 1150px;
+  /* max-height: 750px; */
+  display: inline-flex;
 }
 
 .friend-list {
