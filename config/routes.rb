@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   resources :albums
   resources :reviews
   resources :relationships
-  resources :users
+  resources :users, only: [:show, :create]
 
   post "/queried_albums", to: "spotify#get_albums"
+  post "/login", to: "sessions#create"
+  get "/auth", to: "users#show"
+  delete "/logout", to: "sessions#destroy"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
