@@ -76,3 +76,37 @@ code {
   border: 1px solid;
   border-color: red;
 }
+
+input#query{
+  padding: 5px;
+  width: 300px;
+}
+
+.search-container{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  position: relative;
+}
+
+.search-container form{
+  width: 33%;
+  align-self: flex-end;
+  box-sizing: content-box;
+}
+
+.search-item-container{
+  width: 33%;
+  align-self: flex-end;
+  position: absolute;
+  top: 30px;
+}
+
+.search-item{
+  width: 300px;
+  display: flex;
+  margin-left: 110px;
+  background: rgba(0,0,0,.1);
+  padding: 5px;
+  border-bottom: 1px solid white;
+}

@@ -28,7 +28,8 @@ export default function Searchbar() {
   }
 
   useEffect(() => {
-      if(isMounted.current){
+      console.log('in use effect here is search: ', search)
+      if(search !== ""){
         console.log(JSON.stringify({q: search}))
         fetch('/queried_albums', {
             method: 'POST',
@@ -37,24 +38,32 @@ export default function Searchbar() {
         })
         .then(res => res.json())
         .then(data =>{
-            console.log(data)
-            setAlbums(formatResponse(data))
+            if(search == ""){
+                setAlbums([]) 
+            } else{
+                setAlbums(formatResponse(data))
+            }           
         })
         .catch(error => console.log(error))
       }else{
-        isMounted.current = true
+        console.log("should be getting rid of search container")
+        setAlbums([])
       }
   }, [search])
   
   return (
-    <div>
+    <div className="search-container">
         <form>
             <label>
                 Search:
                 <input type="text" name="query" id="query" onChange={e => setSearch(e.target.value)} value={search}/>
             </label>
         </form>
-        {albums.length > 0 && renderResults}
+        {(albums.length > 0) &&
+            <div className="search-item-container">
+                {renderResults}
+            </div>
+            }
     </div>
   )
 }

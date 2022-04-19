@@ -16,9 +16,9 @@ export default function SearchBarItem({album}) {
 
   console.log(album.spotify_id)
   return (
-    <div className="search-item" onClick={handleClick}>
-        <img src={album.album_art_url} style={{height: '50px', width: '50px'}} alt={album.title}/>
-        <p>{album.title}</p>
-    </div>
+      <div className="search-item" onClick={handleClick}>
+          <img src={album.album_art_url} style={{height: '50px', width: '50px'}} alt={album.title}/>
+          <p>{album.title}</p>
+      </div>
   )
 }
