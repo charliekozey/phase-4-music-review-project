@@ -1,9 +1,10 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-export default function SearchBarItem({album}) {
+export default function SearchBarItem({album, resetSearch}) {
   let history = useHistory();
   function handleClick() {
+      resetSearch();
       fetch('/albums', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
