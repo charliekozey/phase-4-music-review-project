@@ -4,6 +4,7 @@ function NavBar() {
     return (
         <div className="navbar">
             navbar
+            
         </div>
     )
 }
