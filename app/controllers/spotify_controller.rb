@@ -3,9 +3,7 @@ class SpotifyController < ApplicationController
     RSpotify.raw_response = true
 
     def get_albums
-        puts query_params[:q]
         albums = RSpotify::Album.search(query_params[:q].to_s, limit: 10)
-        puts query_params.to_s
         render json: albums
     end
 

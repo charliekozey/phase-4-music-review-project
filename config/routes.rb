@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :albums
+  resources :albums, only: [:show, :create]
   resources :reviews
   resources :relationships
   resources :users
