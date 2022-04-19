@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
+import SearchBarItem from './SearchBarItem'
 
 
 
@@ -9,21 +10,19 @@ export default function Searchbar() {
 
   const renderResults = albums.map(album => {
       return (
-          <div className="search-item">
-              <img src={album.image_url} style={{height: '50px', width: '50px'}}/>
-              <p>{album.name}</p>
-          </div>
+          <SearchBarItem album={album} />
         )
   })
 
   function formatResponse(res){
       return res.albums.items.map(album => {
           return {
-              name: album.name,
+              title: album.name,
               artist: album.artists[0].name,
-              image_url: album.images[2].url,
+              album_art_url: album.images[0].url,
               release_date: album.release_date,
-              total_tracks: album.total_tracks
+              total_tracks: album.total_tracks,
+              spotify_id: album.id
           }
       })
   }
