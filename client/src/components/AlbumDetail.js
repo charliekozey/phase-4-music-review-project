@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import ReviewList from "./ReviewList";
 import ReviewDetail from "./ReviewDetail";
 
-function AlbumDetail() {
+function AlbumDetail({ currentUser }) {
     const { id } = useParams();
     const [album, setAlbum] = useState();
     const [isLoaded, setIsLoaded] = useState(false)
@@ -16,6 +16,7 @@ function AlbumDetail() {
         .then(album => {
             setAlbum(album)
             setIsLoaded(true)
+            console.log(album)
         })
     }, [id])
     
@@ -26,8 +27,9 @@ function AlbumDetail() {
                 <img src={album.album_art_url} alt={album.title} />
                 <h3 className="album-detail-title">{album.title}</h3>
                 <h4 className="album-detail-artist">{album.artist}</h4>
+                <Link to={`/albums/${id}/reviews/new`}><button>Leave a Review</button></Link>
+                <ReviewList reviews={album.reviews}/>
             </div> : <div>loading...</div>}
-            <ReviewList />
             <ReviewDetail />
         </>
     )

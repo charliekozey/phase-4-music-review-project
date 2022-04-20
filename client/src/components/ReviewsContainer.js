@@ -7,9 +7,9 @@ function ReviewsContainer() {
             reviews container
             {/* <GlobalState />
             <FriendsState /> */}
+            {/* <ReviewList />
             <ReviewList />
-            <ReviewList />
-            <ReviewList />
+            <ReviewList /> */}
         </div>
     )
 }

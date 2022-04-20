@@ -4,7 +4,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     skip_before_action :authorized, only: [:show, :create]
     def show
         album = Album.find(params[:id])
-        render json: album, status: :ok
+        render json: album, include: ['reviews', 'reviews.user'], status: :ok
     end
 
     def create

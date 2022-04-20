@@ -1,11 +1,16 @@
 import React from "react";
 import ReviewCard from "./ReviewCard";
 
-function ReviewList() {
+function ReviewList({reviews}) {
+    const reviewList = reviews.map(review => {
+        return (
+            <ReviewCard review={review} />
+        )
+    })
     return (
         <div className="review-list">
-            review list
-            <ReviewCard />
+            Reviews:
+            {reviewList}
         </div>
     )
 }

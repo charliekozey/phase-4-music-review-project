@@ -8,10 +8,16 @@ import Header from './components/Header';
 import { Switch, Route } from "react-router-dom"
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
+import ReviewForm from './components/ReviewForm';
+
 import { useEffect, useState } from 'react';
 
-
 function App() {
+
+  require('react-dom');
+  window.React2 = require('react');
+  console.log(window.React1 === window.React2);
+
 
   const [currentUser, setCurrentUser] = useState("")
  
@@ -38,7 +44,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/albums/:id">
-          <AlbumDetail />
+          <AlbumDetail currentUser={currentUser} />
         </Route>
         <Route exact path="/users/:id">
           <UserProfile />
@@ -48,6 +54,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <LogIn setCurrentUser={setCurrentUser} />
+        </Route>
+        <Route exact path="/albums/:id/reviews/new">
+          <ReviewForm currentUser={currentUser} />
         </Route>
       </Switch>
     </div>
