@@ -1,6 +1,6 @@
 class SpotifyController < ApplicationController
 
-    # skip_before_action :authorized, only: :get_albums
+    skip_before_action :authorized, only: :get_albums
 
     RSpotify.raw_response = true
 

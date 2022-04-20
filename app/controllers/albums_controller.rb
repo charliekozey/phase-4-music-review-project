@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-
+    skip_before_action :authorized, only: [:show, :create]
     def show
         album = Album.find(params[:id])
         render json: album, status: :ok
