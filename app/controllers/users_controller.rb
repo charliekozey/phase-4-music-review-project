@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorized, only: [:create, :show]
+    skip_before_action :authorized, only: [:create]
 
     def create
         user = User.create!(user_params)
@@ -8,8 +8,26 @@ class UsersController < ApplicationController
     end
 
     def show
-        current_user = User.find(session[:user_id])
-        render json: current_user
+        render json: @current_user
+    end
+
+    def other_user
+        other_user = User.find(params[:id])
+        render json: other_user
+    end
+
+    def following
+        @title = "Following"
+        @user  = User.find(params[:id])
+        @users = @user.following
+        render json: @users
+    end
+    
+    def followers
+        @title = "Followers"
+        @user  = User.find(params[:id])
+        @users = @user.followers
+        render json: @users
     end
 
     private
