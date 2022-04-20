@@ -37,7 +37,7 @@ function UserProfile() {
         {isLoaded ? <div className="user-profile">
             {user.username}
             <button onClick={() => handleFollow()}>Follow me</button>
-            <ReviewList reviews={user.reviews}/>
+            <ReviewList reviews={user.reviews} user={user}/>
             <FriendList />
         </div> : <div>Loading</div>}
         </div>

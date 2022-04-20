@@ -14,11 +14,6 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  require('react-dom');
-  window.React2 = require('react');
-  console.log(window.React1 === window.React2);
-
-
   const [currentUser, setCurrentUser] = useState("")
  
   useEffect(()=>{
