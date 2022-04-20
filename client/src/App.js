@@ -19,6 +19,7 @@ function App() {
   useEffect(()=>{
     fetch('/auth')
     .then(res => {
+      // console.log(res.json())
       if(res.ok){
         res.json().then(user => setCurrentUser(user))
       }
