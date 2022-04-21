@@ -3,7 +3,7 @@ import ReviewList from "./ReviewList";
 import FriendList from "./FriendList";
 import { useParams } from "react-router-dom";
 
-function UserProfile() {
+function UserProfile({currentUser}) {
 
     const [user, setUser] = useState()
     const { id } = useParams()
@@ -13,10 +13,8 @@ function UserProfile() {
         fetch(`/users/${id}/other_user`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
                 setUser(data)
                 setIsLoaded(true)
-                console.log(`album: ${data.reviews.album}`)
             })
     }, [id])
 
@@ -29,20 +27,50 @@ function UserProfile() {
         .then(res => res.json())
         .then(data =>{
             console.log(data)
+            setUser({...user, followers: [...user.followers, currentUser]})
         })
         .catch(error => console.log(error))
     }
 
+    function handleUnfollow(){
+        fetch(`/relationships/${user.id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({current_user_id: currentUser.id})
+        })
+        .then(res=> res.json())
+        .then(data => {
+            setUser({...user, followers: user.followers.filter(u => u.id !== currentUser.id)})
+            console.log(data)
+            console.log("Unfollowed ur nice friend")
+
+        }).catch(e => console.log(e))
+    }
+
+    function checkUserId(userID){
+        return currentUser && currentUser.following.some(u => u.id == userID)
+    }
     
 
     return (
         <div>
-        {isLoaded ? <div className="user-profile">
-            {user.username}
-            <button onClick={() => handleFollow()}>Follow me</button>
-            <ReviewList reviews={user.reviews} user={user} />
-            <FriendList />
-        </div> : <div>Loading</div>}
+        {isLoaded ? 
+            <div className="user-profile">
+                {user.username}
+                {user.id == currentUser.id ?
+                    <>
+                        {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
+                        <FriendList following={user.following} followers={user.followers}/>
+                    </> : 
+                    <> 
+                    {checkUserId(user.id) ?
+                        <button onClick={() => handleUnfollow()}>Unfollow me</button> :
+                        <button onClick={() => handleFollow()}>Follow me</button>}
+                    {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
+                    <FriendList following={user.following} followers={user.followers}/>
+                    </>
+                }
+            </div> : <div>Loading...</div>}
         </div>
     )
 

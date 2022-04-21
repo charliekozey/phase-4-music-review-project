@@ -1,13 +1,16 @@
 import React from "react"
-import reactRouterDom, {Link} from "react-router-dom"
+import reactRouterDom, {Link, useHistory} from "react-router-dom"
 import NavBar from "./NavBar"
 
 function Header( {currentUser, onLogout} ){
-    
+    const history = useHistory();
     function handleLogout() {
         fetch("/logout", {
             method: "DELETE",
-        }).then(() => onLogout());
+        }).then(() => {
+            onLogout();
+            history.push('/')
+        });
     }
 
     return (

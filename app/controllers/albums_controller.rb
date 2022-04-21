@@ -8,8 +8,13 @@ rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     end
 
     def create
-        album = Album.create!(albums_param)
-        render json: album, status: :created
+        album = Album.find_by(spotify_id: params[:spotify_id])
+        if album
+            render json: album, status: :ok
+        else
+            album = Album.create!(albums_param)
+            render json: album, status: :created
+        end
     end
 
     private
