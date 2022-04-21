@@ -2,10 +2,12 @@ import React from "react";
 
 function CarouselSlide({ topAlbum }) {
     console.log( topAlbum )
+
     return (
         <div>
-            <img alt="" src="https://picsum.photos/id/237/200/300" />
-            <p className="legend">{ topAlbum.title }</p>
+            <img alt="" src={ topAlbum.album_art_url } />
+            <p className="carousel-artist">{ topAlbum.artist }</p>
+            <p className="carousel-title">{ topAlbum.title }</p>
         </div>
     )
 }
