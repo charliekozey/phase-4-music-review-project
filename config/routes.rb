@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :albums, only: [:show, :create]
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
-  resources :relationships
+  resources :relationships, only: [:create, :destroy]
   # resources :users, only: [:show, :create]
   resources :users do
     member do

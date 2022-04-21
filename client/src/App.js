@@ -50,7 +50,7 @@ function App() {
           <ReviewDetail currentUser={currentUser} />
         </Route>
         <Route exact path="/users/:id">
-          <UserProfile />
+          <UserProfile currentUser={currentUser}/>
         </Route>
         <Route exact path="/signup">
           <SignUp />
