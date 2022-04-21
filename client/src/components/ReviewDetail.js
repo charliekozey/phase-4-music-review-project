@@ -103,7 +103,11 @@ function ReviewDetail({ currentUser }) {
                         }
                         
                     </div>
-                    <div>Review by: <Link to={`/users/${review.user.id}`}>{review.user.username}</Link></div>
+                    <div>Review by: 
+                        <span class="user">
+                            <Link to={`/users/${review.user.id}`}>{review.user.username}</Link>
+                        </span>
+                    </div>
                 </div>
             }
         </div>

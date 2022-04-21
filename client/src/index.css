@@ -89,6 +89,19 @@ code {
   border-color: red;
 }
 
+.user {
+  border: 2px solid;
+  border-color: purple;
+  font-family: monospace;
+  font-size: x-large;
+  color: goldenrod;
+}
+
+.user a:visited {
+  text-decoration: none;
+  color: goldenrod;
+}
+
 input#query{
   padding: 5px;
   width: 300px;
