@@ -1,13 +1,18 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-    skip_before_action :authorized, only: [:get_highest_rated_albums, :index, :show]
-    
-    def get_highest_rated_albums
-        top_albums = Review.highest_rated
-        render json: top_albums 
+    skip_before_action :authorized, only: [:index, :show]
+
+    def get_top_10_reviews
+        reviews = Review.top_10_this_week
+        render json: reviews, status: :ok
     end
 
+    def get_10_most_recent
+        reviews = Review.most_recent
+        render json: reviews, status: :ok
+    end
+    
     def create
         review = Review.create!(reviews_param)
         render json: review, status: :created
