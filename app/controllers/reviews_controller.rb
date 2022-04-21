@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-    skip_before_action :authorized, only: :get_highest_rated_albums
+    skip_before_action :authorized, only: [:get_highest_rated_albums, :index, :show]
     
     def get_highest_rated_albums
         top_albums = Review.highest_rated

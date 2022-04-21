@@ -19,7 +19,7 @@ export default function LogIn({ setCurrentUser }) {
         .then(res => res.json())
         .then(data =>{
             setCurrentUser(data)
-            history.push('/')
+            history.goBack()
         })
         .catch(error => console.log(error))
     }

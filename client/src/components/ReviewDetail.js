@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 
-function ReviewDetail() {
+function ReviewDetail({ currentUser }) {
 
     const [review, setReview] = useState()
     const [isLoaded, setIsLoaded] = useState(false)
@@ -17,7 +17,7 @@ function ReviewDetail() {
                 setReview(data)
                 setIsLoaded(true)
 
-                console.log(data)
+                console.log(`the good shit: ${data}`)
             })
     }, [reviewID])
 
@@ -58,7 +58,7 @@ function ReviewDetail() {
             {isLoaded && 
                 <div>
                     <div>{review.album.artist}, <em>{review.album.title}</em></div>
-                    <img style={{height: '50px', width:'50px'}} src={review.album.album_art_url} alt="cover" />
+                    <Link to={`/albums/${review.album.id}`}><img style={{height: '50px', width:'50px'}} src={review.album.album_art_url} alt="cover" /></Link>
                     <div>
                         {isEditing ? 
                             <form onSubmit={(e) => handleEditReview(e)}>
@@ -93,13 +93,17 @@ function ReviewDetail() {
                         : <div>
                             <div>{review.rating}</div>
                             <div>{review.review_text}</div>
-                            <button onClick={() => setIsEditing(!isEditing)}>Edit review</button>
-                            <button onClick={() => handleDeleteReview()}>Delete review</button>
+                            {review.user.id === currentUser.id &&
+                                <div>
+                                    <button onClick={() => setIsEditing(!isEditing)}>Edit review</button>
+                                    <button onClick={() => handleDeleteReview()}>Delete review</button>
+                                </div> 
+                            }
                             </div>
                         }
                         
                     </div>
-                    <div>Review by: {review.user.username}</div>
+                    <div>Review by: <Link to={`/users/${review.user.id}`}>{review.user.username}</Link></div>
                 </div>
             }
         </div>
