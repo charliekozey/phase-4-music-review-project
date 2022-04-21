@@ -56,7 +56,7 @@ function UserProfile({currentUser}) {
         <div>
         {isLoaded ? 
             <div className="user-profile">
-                {user.username}
+                <span class="user">{user.username}</span>
                 {user.id == currentUser.id ?
                     <>
                         {user.reviews && <ReviewList reviews={user.reviews} user={user} />}

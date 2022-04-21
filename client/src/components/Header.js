@@ -20,7 +20,7 @@ function Header( {currentUser, onLogout} ){
             <div className="log-in">
                 { currentUser ? 
                     <>
-                        <Link to={`/users/${currentUser.id}`}><span>{currentUser.username}</span></Link>
+                        <Link to={`/users/${currentUser.id}`}><span class="user">{currentUser.username}</span></Link>
                         <button onClick={handleLogout}>Logout</button>
                     </> : 
                     <>

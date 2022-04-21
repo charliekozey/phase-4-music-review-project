@@ -15,8 +15,16 @@ function ReviewCard({review, album, user=false}) {
                     </div>
                 </Link>
                 {user ? 
-                    <span>By: <Link to={`/users/${user.id}`}>{user.username}</Link></span> : 
-                    <span>By: <Link to={`/users/${review.user.id}`}>{review.user.username}</Link></span>
+                    <span>By: 
+                        <span class="user">
+                            <Link to={`/users/${user.id}`}>{user.username}</Link>
+                        </span>
+                    </span> : 
+                    <span>By: 
+                        <span class="user">
+                            <Link to={`/users/${review.user.id}`}>{review.user.username}</Link>
+                        </span>
+                    </span>
                 }
             </div>
         
