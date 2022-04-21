@@ -9,7 +9,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
 
     def follow(other_user)
-        active_relationships.create(followed_id: other_user.id)
+        active_relationships.create!(followed_id: other_user.id, follower_id: self.id)
     end
 
     def unfollow(other_user)
