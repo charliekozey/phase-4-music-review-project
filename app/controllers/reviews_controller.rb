@@ -37,9 +37,10 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        review = Review.find_by(params[:id])
+        review = Review.find(params[:id])
         if review
-            review.destroy        
+            review.destroy
+            head :no_content        
         else
             render json: {errors:["Episode not found"]}, status: 422
         end

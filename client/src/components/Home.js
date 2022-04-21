@@ -6,7 +6,6 @@ import ReviewsContainer from "./ReviewsContainer"
 function Home() {
     return (
         <div className="home">
-            home
             <CarouselDisplay />
             <ReviewsContainer />
         </div>

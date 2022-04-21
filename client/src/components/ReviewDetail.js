@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 function ReviewDetail() {
 
@@ -7,6 +7,7 @@ function ReviewDetail() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [isEditing, setIsEditing] = useState(false)
     const { reviewID } = useParams()
+    const history = useHistory()
 
     useEffect(() => {
         fetch(`/reviews/${reviewID}`)
@@ -35,6 +36,22 @@ function ReviewDetail() {
         .catch(error => console.log(error))
 
         setIsEditing(false)
+    }
+
+    function handleDeleteReview() {
+        fetch(`/reviews/${reviewID}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json'}
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(`deleted review`)
+            history.push(`/albums/${review.album.id}`)
+        })
+        .catch(error => console.log(error))
+
+        setIsEditing(false)
+
     }
 
     return (
@@ -78,6 +95,7 @@ function ReviewDetail() {
                             <div>{review.rating}</div>
                             <div>{review.review_text}</div>
                             <button onClick={() => setIsEditing(!isEditing)}>Edit review</button>
+                            <button onClick={() => handleDeleteReview()}>Delete review</button>
                             </div>
                         }
                         

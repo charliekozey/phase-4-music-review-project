@@ -43,6 +43,9 @@ function App() {
         <Route exact path="/albums/:id">
           <AlbumDetail currentUser={currentUser} />
         </Route>
+        <Route exact path="/albums/:id/reviews/new">
+          <ReviewForm currentUser={currentUser} />
+        </Route>
         <Route exact path="/albums/:id/reviews/:reviewID">
           <ReviewDetail currentUser={currentUser} />
         </Route>
@@ -54,9 +57,6 @@ function App() {
         </Route>
         <Route exact path="/login">
           <LogIn setCurrentUser={setCurrentUser} />
-        </Route>
-        <Route exact path="/albums/:id/reviews/new">
-          <ReviewForm currentUser={currentUser} />
         </Route>
       </Switch>
     </div>
