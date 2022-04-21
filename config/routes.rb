@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :albums, only: [:show, :create]
-  resources :reviews, only: [:create]
+  resources :reviews, only: [:index, :show, :create, :update, :destroy]
   resources :relationships
   # resources :users, only: [:show, :create]
   resources :users do

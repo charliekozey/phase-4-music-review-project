@@ -28,9 +28,8 @@ function AlbumDetail({ currentUser }) {
                 <h3 className="album-detail-title">{album.title}</h3>
                 <h4 className="album-detail-artist">{album.artist}</h4>
                 <Link to={`/albums/${id}/reviews/new`}><button>Leave a Review</button></Link>
-                <ReviewList reviews={album.reviews}/>
+                <ReviewList reviews={album.reviews} album={album} />
             </div> : <div>loading...</div>}
-            <ReviewDetail />
         </>
     )
     
