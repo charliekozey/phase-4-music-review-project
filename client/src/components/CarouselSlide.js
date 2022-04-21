@@ -1,15 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom"
-// import { useHistory } from 'react-router-dom'
 
 
 function CarouselSlide({ topAlbum }) {
     console.log( topAlbum )
-    // let history = useHistory();
-
-    // function handleClick() {
-    //     history.push(`albums/${topAlbum.id}`)
-    // }
 
 
     return (

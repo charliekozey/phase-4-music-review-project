@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/auth", to: "users#show"
   delete "/logout", to: "sessions#destroy"
-  get "/highest_rated_albums", to: "reviews#get_highest_rated_albums"
+  get "/highest_rated_albums", to: "albums#get_highest_rated_albums"
+  get "/top_reviews", to: "reviews#get_top_10_reviews"
+  get "/new_reviews", to: "reviews#get_10_most_recent"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

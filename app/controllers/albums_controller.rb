@@ -1,7 +1,13 @@
 class AlbumsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-    skip_before_action :authorized, only: [:show, :create]
+    skip_before_action :authorized, only: [:show, :create, :get_highest_rated_albums]
+
+    def get_highest_rated_albums
+        top_albums = Album.highest_rated
+        render json: top_albums 
+    end
+
     def show
         album = Album.find(params[:id])
         render json: album, include: ['reviews', 'reviews.user'], status: :ok

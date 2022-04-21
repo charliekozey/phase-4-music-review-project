@@ -38,7 +38,7 @@ function App() {
       
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home currentUser={currentUser}/>
         </Route>
         <Route exact path="/albums/:id">
           <AlbumDetail currentUser={currentUser} />

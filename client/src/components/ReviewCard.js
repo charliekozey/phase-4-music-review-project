@@ -1,13 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function ReviewCard({review, album, user=false}) {
     const lilReview = review.review_text.slice(0, 75)
     console.log(album)
+    const location = useLocation()
+    console.log(location)
 
     return (
         
             <div className="review-card">
+                {location.pathname === '/' && <div>{album.title} - {album.artist}</div>}
                 <Link to={`/albums/${album.id}/reviews/${review.id}`}>
                     <div>
                         <span>{review.rating} </span>
