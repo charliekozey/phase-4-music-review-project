@@ -13,7 +13,7 @@ function Header( {currentUser, onLogout} ){
     return (
         <>
         <div className="header">
-            <h1>ZOUNDD</h1>
+            <Link to="/"><h1>ZOUNDD</h1></Link>
             <div className="log-in">
                 { currentUser ? 
                     <>

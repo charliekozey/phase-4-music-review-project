@@ -9,6 +9,7 @@ import { Switch, Route } from "react-router-dom"
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import ReviewForm from './components/ReviewForm';
+import ReviewDetail from './components/ReviewDetail';
 
 import { useEffect, useState } from 'react';
 
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route exact path="/albums/:id">
           <AlbumDetail currentUser={currentUser} />
+        </Route>
+        <Route exact path="/albums/:id/reviews/:reviewID">
+          <ReviewDetail currentUser={currentUser} />
         </Route>
         <Route exact path="/users/:id">
           <UserProfile />

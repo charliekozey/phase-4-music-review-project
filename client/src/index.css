@@ -19,6 +19,10 @@ code {
   justify-content: space-between;
 }
 
+.header a{
+  text-decoration: none;
+}
+
 .log-in{
   display: flex;
   align-items: center;

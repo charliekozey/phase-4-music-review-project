@@ -1,10 +1,10 @@
 import React from "react";
 import ReviewCard from "./ReviewCard";
 
-function ReviewList({reviews, user=false}) {
+function ReviewList({reviews, album, user=false}) {
     const reviewList = reviews.map(review => {
         return (
-            user ? <ReviewCard review={review} user={user}/> : <ReviewCard review={review}/>
+            user ? <ReviewCard review={review} album={album} user={user} /> : <ReviewCard review={review} album={album} />
         )
     })
     return (
