@@ -5,6 +5,7 @@ function ReviewForm({ currentUser }) {
 
     const [rating, setRating] = useState()
     const [reviewText, setReviewText] = useState()
+    const [errors, setErrors] = useState()
     const albumID = useParams().id
     const history = useHistory()
     
@@ -18,16 +19,24 @@ function ReviewForm({ currentUser }) {
         })
         .then(res => res.json())
         .then(data =>{
-            history.push(`/albums/${albumID}`)
+            if(data.errors){
+                setErrors(data.errors)
+            }
+            else{
+                history.push(`/albums/${albumID}`)
+            }
         })
-        .catch(error => console.log(error))
     }
     
     return (
         <div>
+            {errors && errors.map(error => {
+                return <p style={{color:'red'}}>{error}</p>
+            })}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor="rating">Choose a rating:</label>
                 <select 
+                    required
                     name="rating" 
                     id="rating" 
                     value={rating} 
