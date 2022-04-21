@@ -4,7 +4,7 @@ import ReviewCard from "./ReviewCard";
 function ReviewList({reviews, album, user=false}) {
     const reviewList = reviews.map(review => {
         return (
-            user ? <ReviewCard review={review} album={album} user={user} /> : <ReviewCard review={review} album={album} />
+            user ? <ReviewCard review={review} album={review.album} user={user} /> : <ReviewCard review={review} album={review.album} />
         )
     })
     return (

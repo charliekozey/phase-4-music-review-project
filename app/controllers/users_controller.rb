@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     def other_user
         other_user = User.find(params[:id])
-        render json: other_user
+        render json: other_user, include: ['reviews', 'reviews.album']
     end
 
     def following

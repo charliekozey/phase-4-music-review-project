@@ -16,6 +16,7 @@ function UserProfile() {
                 // console.log(data)
                 setUser(data)
                 setIsLoaded(true)
+                console.log(`album: ${data.reviews.album}`)
             })
     }, [id])
 
@@ -32,12 +33,14 @@ function UserProfile() {
         .catch(error => console.log(error))
     }
 
+    
+
     return (
         <div>
         {isLoaded ? <div className="user-profile">
             {user.username}
             <button onClick={() => handleFollow()}>Follow me</button>
-            <ReviewList reviews={user.reviews} user={user}/>
+            <ReviewList reviews={user.reviews} user={user} />
             <FriendList />
         </div> : <div>Loading</div>}
         </div>

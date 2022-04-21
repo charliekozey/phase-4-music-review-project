@@ -17,7 +17,7 @@ function Header( {currentUser, onLogout} ){
             <div className="log-in">
                 { currentUser ? 
                     <>
-                        <span>{currentUser.username}</span>
+                        <Link to={`/users/${currentUser.id}`}><span>{currentUser.username}</span></Link>
                         <button onClick={handleLogout}>Logout</button>
                     </> : 
                     <>
