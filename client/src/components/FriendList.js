@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 function FriendList({followers, following}) {
     const followingDivs = following.map(f => {
-        return <Link to={`/users/${f.id}`}><span class="user">{f.username}</span></Link>
+        return <Link to={`/users/${f.id}`}><span className="user">{f.username}</span></Link>
     })
     
     const followersDivs = followers.map(f => {
-        return <Link to={`/users/${f.id}`}><span class="user">{f.username}</span></Link>
+        return <Link to={`/users/${f.id}`}><span className="user">{f.username}</span></Link>
     })
     return (
         <div className="friend-list">

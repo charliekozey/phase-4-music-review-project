@@ -4,7 +4,6 @@ import Searchbar from "./Searchbar"
 function NavBar() {
     return (
         <div className="navbar">
-            navbar
             <Searchbar />
         </div>
     )

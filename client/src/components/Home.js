@@ -23,10 +23,16 @@ function Home({currentUser}) {
     return (
         <div className="home">
             <CarouselDisplay />
-            <h3>Popular Reviews</h3>
-            {mostPopular && <ReviewList reviews={mostPopular} />}
-            <h3>Recent Reviews</h3>
-            {mostRecent && <ReviewList reviews={mostRecent} />}
+            <div id="home-list-container">
+                <div className="home-page-list">
+                    <h3>Popular Reviews</h3>
+                    {mostPopular && <ReviewList reviews={mostPopular} />}
+                </div>
+                <div className="home-page-list">
+                    <h3>Recent Reviews</h3>
+                    {mostRecent && <ReviewList reviews={mostRecent} />}
+                </div>
+            </div>
         </div>
     )
 }

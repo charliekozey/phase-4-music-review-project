@@ -12,6 +12,18 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: red;
+}
+
 .header {
   display: flex;
   width: 80%;
@@ -37,56 +49,98 @@ code {
 }
 
 .navbar {
-  border: 1px solid;
-  border-color: red;
 }
 
 .home {
+  background-color: white;
+}
+
+#home-list-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto;
+}
+
+.home-page-list {
   border: 1px solid;
-  border-color: red;
-  background-color: aqua;
+  background-color: white;
+  width: 48%;
+}
+
+.home-page-list h3 {
+  background-color: white;
+  margin-left: 9px;
+}
+
+.album-art-with-rating h4 {
+  padding: 0;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: 26px;
+}
+
+.album-art-with-rating {
+  width: 20%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.album-artist-review-container {
+  padding: 6px 6px;
+}
+
+.artist-and-album {
+  color: #555;
+}
+
+.artist-and-album h3 {
+  margin: 6px 0px;
+}
+
+.lil-review p {
+  margin: 0;
 }
 
 .album-detail {
   border: 1px solid;
-  border-color: red;
 }
 
 .carousel {
   border: 1px solid;
-    border-color: red;
-    max-width: 600px;
-    margin: 0 auto;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .friend-list {
   border: 1px solid;
-  border-color: red;
 }
 
 .review-card {
   border: 1px solid;
-  border-color: red;
+  display: flex;
+  padding: 4px;
 }
 
 .review-detail {
   border: 1px solid;
-  border-color: red;
 }
 
 .review-list {
   border: 1px solid;
-  border-color: red;
 }
 
 .reviews-container {
   border: 1px solid;
-  border-color: red;
 }
 
 .user-profile {
   border: 1px solid;
-  border-color: red;
 }
 
 .user {
@@ -115,9 +169,9 @@ input#query{
 }
 
 .search-container form{
-  width: 33%;
   align-self: flex-end;
   box-sizing: content-box;
+  margin-right: 5%;
 }
 
 .search-item-container{
@@ -125,13 +179,15 @@ input#query{
   align-self: flex-end;
   position: absolute;
   top: 30px;
+  z-index: 100000;
 }
 
 .search-item{
   width: 300px;
   display: flex;
-  margin-left: 110px;
-  background: rgba(0,0,0,.1);
+  margin-left: 90px;
+  /* background: rgba(0,0,0,.1); */
+  background-color: #ddd;
   padding: 5px;
   border-bottom: 1px solid white;
   z-index: 100000;

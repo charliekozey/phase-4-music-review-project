@@ -53,11 +53,10 @@ export default function Searchbar() {
   
   return (
     <div className="search-container">
-        <form>
-            <label>
-                Search:
+        <form className="search-form">
+            <label>Search: </label>
                 <input type="text" name="query" id="query" onChange={e => setSearch(e.target.value)} value={search}/>
-            </label>
+            
         </form>
         {(albums.length > 0) &&
             <div className="search-item-container">

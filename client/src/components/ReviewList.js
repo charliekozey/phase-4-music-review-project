@@ -10,7 +10,6 @@ function ReviewList({reviews, album, user=false}) {
     })
     return (
         <div className="review-list">
-            Reviews:
             {reviewList}
         </div>
     )
