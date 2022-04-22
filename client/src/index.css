@@ -255,6 +255,10 @@ input[type="submit"] {
   text-transform: uppercase;
 }
 
+input {
+  line-height: 22px;
+}
+
 input[type="submit"]:hover {
   cursor: pointer;
 }
@@ -263,23 +267,35 @@ input[type="submit"]:active {
   box-shadow: none;
 }
 
-.user-form {
+
+
+.form-container {
   display: flex;
   flex-direction: column;
   width: 300px;
   margin: 45px auto 0;
 }
 
-.user-form h2 {
+.form-container h2 {
   font-weight: normal
 }
 
-.user-form form {
+.form-container form {
   display: flex;
   flex-direction: column;
 }
 
 
-.user-form form label {
-  padding: 20px;
+.form-container form label {
+  padding: 20px 0px;
+  text-align: left;
+}
+
+.form-container form input[type='submit']{
+  margin-top: 20px;
+}
+
+textarea {
+  height: 200px;
+  text-indent: 5px;
 }
