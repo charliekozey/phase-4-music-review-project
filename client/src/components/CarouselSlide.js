@@ -10,8 +10,11 @@ function CarouselSlide({ topAlbum }) {
         <div>
             <Link to={`albums/${topAlbum.id}`}>
             <img alt="" src={ topAlbum.album_art_url } />
-            <p className="carousel-artist">{ topAlbum.artist }</p>
-            <p className="carousel-title">{ topAlbum.title }</p>
+            <h2 className="carousel-artist">{ topAlbum.artist }</h2>
+            <h2 className="carousel-title"><em>{ topAlbum.title }</em></h2>
+            <h2 className="carousel-rating">
+                {topAlbum.average_rating !== 0.0 ? `${topAlbum.average_rating}/10` : 'no ratings yet' }
+            </h2>
             </Link>
         </div>
     )
