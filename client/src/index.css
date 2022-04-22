@@ -112,7 +112,6 @@ a:hover {
 }
 
 .carousel {
-  border: 1px solid;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -122,7 +121,6 @@ a:hover {
 }
 
 .review-card {
-  border: 1px solid;
   display: flex;
   padding: 4px;
 }
@@ -132,7 +130,6 @@ a:hover {
 }
 
 .review-list {
-  border: 1px solid;
 }
 
 .reviews-container {
@@ -144,11 +141,13 @@ a:hover {
 }
 
 .user {
-  border: 2px solid;
-  border-color: purple;
+  border-bottom: 1px solid;
+  border-color: black;
   font-family: monospace;
   font-size: x-large;
   color: goldenrod;
+  text-align: right;
+  margin: 0px 6px 6px 0px;
 }
 
 .user a:visited {
