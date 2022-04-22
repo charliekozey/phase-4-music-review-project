@@ -164,13 +164,14 @@ input#query{
 .search-container{
   display: flex;
   justify-content: flex-end;
-  flex-direction: column;
+}
+
+.searchbar {
+  width: 500px;
   position: relative;
 }
 
 .search-container form{
-  align-self: flex-end;
-  box-sizing: content-box;
   margin-right: 5%;
 }
 
@@ -183,12 +184,11 @@ input#query{
 }
 
 .search-item{
-  width: 300px;
-  display: flex;
-  margin-left: 90px;
-  /* background: rgba(0,0,0,.1); */
-  background-color: #ddd;
-  padding: 5px;
-  border-bottom: 1px solid white;
-  z-index: 100000;
+    width: 303px;
+    display: flex;
+    margin-left: 110px;
+    background-color: #ddd;
+    padding: 5px;
+    border-bottom: 1px solid white;
+    z-index: 100000;
 }
