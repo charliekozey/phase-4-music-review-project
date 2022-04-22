@@ -123,6 +123,14 @@ a:hover {
 .review-card {
   display: flex;
   padding: 4px;
+  border-bottom: 1px solid;
+  justify-content: space-between;
+}
+
+.user-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .review-detail {
@@ -130,6 +138,7 @@ a:hover {
 }
 
 .review-list {
+  max-width: 700px;
 }
 
 .reviews-container {
@@ -140,19 +149,25 @@ a:hover {
   border: 1px solid;
 }
 
-.user {
-  border-bottom: 1px solid;
-  border-color: black;
-  font-family: monospace;
-  font-size: x-large;
-  color: goldenrod;
-  text-align: right;
-  margin: 0px 6px 6px 0px;
+#user-profile {
+  display: flex;
+  justify-content: center;
 }
 
-.user a:visited {
-  text-decoration: none;
-  color: goldenrod;
+.user {
+  font-size: large;
+  text-align: right;
+  padding: 0px 12px 3px;
+}
+
+.user a {
+  font-size: large;
+  color: #555;
+}
+
+.user a:hover {
+  font-size: large;
+  color: red;
 }
 
 input#query{

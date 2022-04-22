@@ -12,11 +12,11 @@ function FriendList({followers, following}) {
     return (
         <div className="friend-list">
             <div className="followers-list">
-                <h3>Peeple who follow u</h3>
+                <h3>Followers</h3>
                 {followersDivs}
             </div>
             <div className="followers-list">
-                <h3>Peeple u follow</h3>
+                <h3>Following</h3>
                 {followingDivs}
             </div>
         </div>

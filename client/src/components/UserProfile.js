@@ -56,9 +56,9 @@ function UserProfile({currentUser}) {
         <div>
         {isLoaded ?
             currentUser ? 
-                <div className="user-profile">
+                <div className="user-profile" id="user-profile">
                     {user.username}
-                    {user.id == currentUser.id ?
+                    {user.id === currentUser.id ?
                         <>
                             {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
                             <FriendList following={user.following} followers={user.followers}/>
@@ -74,6 +74,7 @@ function UserProfile({currentUser}) {
                     }
                 </div> :
                     <div className="user-profile">
+                        {user.username}
                         {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
                         <FriendList following={user.following} followers={user.followers}/>
                     </div> :
