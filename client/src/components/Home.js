@@ -24,9 +24,9 @@ function Home({currentUser}) {
         <div className="home">
             <CarouselDisplay />
             <h3>Popular Reviews</h3>
-            {mostPopular &&<ReviewList reviews={mostPopular} />}
+            {mostPopular && <ReviewList reviews={mostPopular} />}
             <h3>Recent Reviews</h3>
-           {mostRecent && <ReviewList reviews={mostRecent} />}
+            {mostRecent && <ReviewList reviews={mostRecent} />}
         </div>
     )
 }

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-    skip_before_action :authorized, only: [:index, :show]
+    skip_before_action :authorized, only: [:index, :show, :get_10_most_recent, :get_top_10_reviews]
 
     def get_top_10_reviews
         reviews = Review.top_10_this_week
