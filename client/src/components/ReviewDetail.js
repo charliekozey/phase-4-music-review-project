@@ -66,38 +66,38 @@ function ReviewDetail({ currentUser }) {
                     <Link to={`/albums/${review.album.id}`}><img style={{height: '250px', width:'250px'}} src={review.album.album_art_url} alt="cover" /></Link>
                     <div>
                         {isEditing ? 
-                            <form className="edit-review-form" onSubmit={(e) => handleEditReview(e)}>
-                            <div className="update-item">
-                            <label htmlFor="rating">Update rating: </label>
-                                <select 
-                                    name="rating"
-                                    id="rating" 
-                                    value={review.rating} 
-                                    onChange={(e) => setReview({...review, rating: parseInt(e.target.value)})}
+                            <div className="form-container">
+                                <form onSubmit={(e) => handleEditReview(e)}>
+                                <label htmlFor="rating">Update rating: </label>
+                                    <select 
+                                        name="rating"
+                                        id="rating" 
+                                        value={review.rating} 
+                                        onChange={(e) => setReview({...review, rating: parseInt(e.target.value)})}
+                                    >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                <label htmlFor="review-text">Update review:</label>
+                                <textarea 
+                                    name="review-text" 
+                                    id="review-text" 
+                                    
+                                    value={review.review_text} 
+                                    onChange={(e) => setReview({...review, review_text: (e.target.value)})}
                                 >
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
-                            <label htmlFor="review-text" className="update-item">Update review:</label>
-                            <textarea 
-                                name="review-text" 
-                                id="review-text" 
-                                className="update-item"
-                                value={review.review_text} 
-                                onChange={(e) => setReview({...review, review_text: (e.target.value)})}
-                            >
-                            </textarea>
-                            <input type="submit" value="Update"></input>
-                        </form>
+                                </textarea>
+                                <input type="submit" value="Update"></input>
+                            </form>
+                        </div>
                         : <div>
                             
                             <div className="review-text">{review.review_text}</div>

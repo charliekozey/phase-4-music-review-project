@@ -113,7 +113,28 @@ a:hover {
 
 .carousel {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 6px auto;
+}
+
+.carousel-artist {
+  margin: none;
+}
+
+.carousel-title {
+  margin: none;
+}
+
+.control-dots {
+  margin: 6px;
+}
+
+.thumbs-wrapper.axis-vertical {
+  max-height: 0px;
+}
+
+.control-arrow {
+  box-shadow: none;
+  max-height: 600px;
 }
 
 .friend-list {
