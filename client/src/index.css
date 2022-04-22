@@ -138,6 +138,36 @@ a:hover {
 
 .review-detail {
   border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-around;
+  align-items: center;
+  margin: 9px;
+}
+
+.update-item {
+  margin: 0px 0px 6px;
+}
+
+.edit-review-form {
+  display: flex;
+  flex-direction: column;
+  justify-items: space-around;
+  align-items: center;
+  margin: 9px;
+}
+
+.review-text {
+  margin: 30px;
+}
+
+.review-by {
+  margin: 15px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
 }
 
 .review-list {
