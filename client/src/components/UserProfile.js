@@ -54,23 +54,32 @@ function UserProfile({currentUser}) {
 
     return (
         <div>
-        {isLoaded ? 
-            <div className="user-profile">
-                <span class="user">{user.username}</span>
-                {user.id == currentUser.id ?
-                    <>
+        {isLoaded ?
+            currentUser ? 
+                <div className="user-profile">
+                    {user.username}
+                    {user.id == currentUser.id ?
+                        <>
+                            {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
+                            <FriendList following={user.following} followers={user.followers}/>
+                        </> : 
+                        <> 
+                        {checkUserId(user.id) ?
+                            <button onClick={() => handleUnfollow()}>Unfollow me</button> :
+                            <button onClick={() => handleFollow()}>Follow me</button>}
+
                         {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
                         <FriendList following={user.following} followers={user.followers}/>
-                    </> : 
-                    <> 
-                    {checkUserId(user.id) ?
-                        <button onClick={() => handleUnfollow()}>Unfollow me</button> :
-                        <button onClick={() => handleFollow()}>Follow me</button>}
-                    {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
-                    <FriendList following={user.following} followers={user.followers}/>
-                    </>
-                }
-            </div> : <div>Loading...</div>}
+                        </>
+                    }
+                </div> :
+                    <div className="user-profile">
+                        {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
+                        <FriendList following={user.following} followers={user.followers}/>
+                    </div> :
+
+            <div>Loading...</div>
+        }
         </div>
     )
 
