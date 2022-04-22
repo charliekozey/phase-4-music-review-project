@@ -67,6 +67,7 @@ function UserProfile({currentUser}) {
                         {checkUserId(user.id) ?
                             <button onClick={() => handleUnfollow()}>Unfollow me</button> :
                             <button onClick={() => handleFollow()}>Follow me</button>}
+
                         {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
                         <FriendList following={user.following} followers={user.followers}/>
                         </>
