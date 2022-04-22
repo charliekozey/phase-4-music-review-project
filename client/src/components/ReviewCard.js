@@ -12,8 +12,8 @@ function ReviewCard({review, album, user=false}) {
             <>
                 <Link to={`/albums/${album.id}/reviews/${review.id}`}>
                     <div className="review-card">
-                        <div className="album-art-with-rating" style={{backgroundImage: `url(${album.album_art_url})`}}>
-                            <h4>{review.rating} </h4>
+                        <div className="album-art-with-rating" style={{backgroundImage: `url(${album.album_art_url})`, maxheight: '100px', maxwidth:'100px', minheight: '100px', minwidth:'100px'}}>
+                            <h4>{review.rating}</h4>
                         </div>
                         <div className="album-artist-review-container">
                             {(location.pathname !== `/albums/${album.id}`) && <div className="artist-and-album">

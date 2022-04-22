@@ -13,7 +13,7 @@ function CarouselSlide({ topAlbum }) {
             <h2 className="carousel-artist">{ topAlbum.artist }</h2>
             <h2 className="carousel-title"><em>{ topAlbum.title }</em></h2>
             <h2 className="carousel-rating">
-                {topAlbum.average_rating !== 0.0 ? `${topAlbum.average_rating}/10` : 'no ratings yet' }
+                {topAlbum.average_rating !== 0.0 ? `${Math.round(topAlbum.average_rating * 10) / 10}/10` : 'no ratings yet' }
             </h2>
             </Link>
         </div>

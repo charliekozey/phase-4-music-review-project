@@ -25,7 +25,7 @@ function Home({currentUser}) {
             <CarouselDisplay />
             <div id="home-list-container">
                 <div className="home-page-list">
-                    <h3>Top Albums</h3>
+                    <h3>Highest Reviews</h3>
                     {mostPopular && <ReviewList reviews={mostPopular} />}
                 </div>
                 <div className="home-page-list">
