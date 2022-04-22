@@ -117,7 +117,10 @@ a:hover {
 }
 
 .friend-list {
-  border: 1px solid;
+  margin: 6px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .review-card {
@@ -151,7 +154,24 @@ a:hover {
 
 #user-profile {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-items: space-around;
+  align-items: center;
+  margin: 9px;
+}
+
+.profile-title {
+
+}
+
+#follow {
+  max-width: 250px;
+  max-height: 75px;
+}
+
+#unfollow {
+  max-width: 250px;
+  max-height: 75px;
 }
 
 .user {

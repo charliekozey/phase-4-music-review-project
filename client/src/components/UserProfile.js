@@ -57,7 +57,7 @@ function UserProfile({currentUser}) {
         {isLoaded ?
             currentUser ? 
                 <div className="user-profile" id="user-profile">
-                    {user.username}
+                    <h1 className="profile-title">{user.username}</h1>
                     {user.id === currentUser.id ?
                         <>
                             {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
@@ -65,16 +65,16 @@ function UserProfile({currentUser}) {
                         </> : 
                         <> 
                         {checkUserId(user.id) ?
-                            <button onClick={() => handleUnfollow()}>Unfollow me</button> :
-                            <button onClick={() => handleFollow()}>Follow me</button>}
+                            <button id="unfollow" onClick={() => handleUnfollow()}>Unfollow me</button> :
+                            <button id="follow" onClick={() => handleFollow()}>Follow me</button>}
 
                         {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
                         <FriendList following={user.following} followers={user.followers}/>
                         </>
                     }
                 </div> :
-                    <div className="user-profile">
-                        {user.username}
+                    <div className="user-profile" id="user-profile">
+                        <h1 className="profile-title">{user.username}</h1>
                         {user.reviews && <ReviewList reviews={user.reviews} user={user} />}
                         <FriendList following={user.following} followers={user.followers}/>
                     </div> :
