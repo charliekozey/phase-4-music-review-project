@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-export default function SignUp() {
+export default function SignUp({ setCurrentUser }) {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [errors, setErrors]= useState()
     const [confirmPassword, setConfirmPassword] = useState("")
+    const history = useHistory();
 
     function handleCreateAccount(e) {
         e.preventDefault()
@@ -17,6 +20,12 @@ export default function SignUp() {
         .then(res => res.json())
         .then(data =>{
             console.log(data)
+            if(data.errors){
+                setErrors(data.errors)
+            }else {
+                setCurrentUser(data)
+                history.push('/') 
+            }
         })
         .catch(error => console.log(error))
     }

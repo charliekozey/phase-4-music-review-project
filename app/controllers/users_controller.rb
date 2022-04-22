@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.create!(user_params)
+        session[:user_id] = user.id
         render json: user
     end
 
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
 
     def other_user
         other_user = User.find(params[:id])
-        render json: other_user, include: ['reviews', 'reviews.album', 'following', 'followers' ]
+        render json: other_user, include: ['reviews', 'reviews.album', 'following', 'followers']
     end
 
     def following

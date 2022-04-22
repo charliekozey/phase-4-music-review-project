@@ -37,9 +37,6 @@ function App() {
       <Header currentUser={currentUser} onLogout={onLogout}/>
       
       <Switch>
-        <Route exact path="/">
-          <Home currentUser={currentUser}/>
-        </Route>
         <Route exact path="/albums/:id">
           <AlbumDetail currentUser={currentUser} />
         </Route>
@@ -53,10 +50,13 @@ function App() {
           <UserProfile currentUser={currentUser} />
         </Route>
         <Route exact path="/signup">
-          <SignUp />
+          <SignUp setCurrentUser={setCurrentUser} />
         </Route>
         <Route exact path="/login">
           <LogIn setCurrentUser={setCurrentUser} />
+        </Route>
+        <Route path="/">
+          <Home currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>

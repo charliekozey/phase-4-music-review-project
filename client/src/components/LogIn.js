@@ -26,7 +26,6 @@ export default function LogIn({ setCurrentUser }) {
                 setCurrentUser(data)
                 history.push('/') 
             }
-
         })
         .catch(error => console.log(error))
     }
