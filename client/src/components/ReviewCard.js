@@ -16,7 +16,7 @@ function ReviewCard({review, album, user=false}) {
                             <h4>{review.rating} </h4>
                         </div>
                         <div className="album-artist-review-container">
-                            {location.pathname === '/' && <div className="artist-and-album">
+                            {(location.pathname !== `/albums/${album.id}`) && <div className="artist-and-album">
                                 <h3><em>{album.title}</em> — {album.artist}</h3>
                             </div>
                             }
@@ -24,20 +24,22 @@ function ReviewCard({review, album, user=false}) {
                                 <p>{lilReview}... </p>
                             </div>
                         </div>
-                    </div>
-                </Link>
-                <div className="">
+                    
+                
+                <div className="user-block">
                     {user ? 
                         
                             <div className="user">
-                                By: <Link to={`/users/${user.id}`}>{user.username}</Link>
+                                review by: <Link to={`/users/${user.id}`}>{user.username}</Link>
                             </div>
                         : 
                             <div className="user">
-                                By: <Link to={`/users/${review.user.id}`}>{review.user.username}</Link>
+                                review by: <Link to={`/users/${review.user.id}`}>{review.user.username}</Link>
                             </div>
                     }
                 </div>
+                </div>
+                </Link>
             </>
         
     )
