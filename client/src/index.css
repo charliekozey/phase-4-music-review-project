@@ -206,3 +206,60 @@ input#query{
     border-bottom: 1px solid white;
     z-index: 100000;
 }
+
+button {
+  padding: 10px 40px;
+  background: white;
+  border: 1px solid #999;
+  color: red;
+  box-shadow: 1px 1px black;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: none;
+}
+
+input[type="submit"] {
+  padding: 10px 40px;
+  background: white;
+  border: 1px solid #999;
+  color: red;
+  box-shadow: 1px 1px black;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+input[type="submit"]:active {
+  box-shadow: none;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 45px auto 0;
+}
+
+.user-form h2 {
+  font-weight: normal
+}
+
+.user-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.user-form form label {
+  padding: 20px;
+}

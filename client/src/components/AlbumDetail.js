@@ -30,7 +30,9 @@ function AlbumDetail({ currentUser }) {
                 <h3 className="album-detail-title">{album.title}</h3>
                 <h4 className="album-detail-artist">{album.artist}</h4>
                 <button onClick={() => handleLeaveReview()}>Leave a Review</button>
-                <ReviewList reviews={album.reviews} album={album} currentUser={currentUser} />
+                <div style={{width: "30%", margin: "20px auto"}}>
+                    <ReviewList reviews={album.reviews} album={album} currentUser={currentUser} />
+                </div>
             </div> : <div>loading...</div>}
         </>
     )

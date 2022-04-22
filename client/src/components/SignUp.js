@@ -23,18 +23,19 @@ export default function SignUp() {
 
 
     return (
-        <div>Sign Up
+        <div classnName="user-form">
+            <h2>Sign Up</h2>
             <form onSubmit={(e) => handleCreateAccount(e)}>
                 <label>
-                    Username:
+                    Username: 
                     <input type="text" name="username" id="username" onChange={e => setUsername(e.target.value)} value={username}/>
                 </label>
                 <label>
-                    Password:
+                    Password: 
                     <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)} value={password}/>
                 </label>
                 <label>
-                    Confirm Password:
+                    Confirm Password: 
                     <input type="password" name="confirm-password" id="confirm-password" onChange={e => setConfirmPassword(e.target.value)} value={confirmPassword}/>
                 </label>
                 <input type="submit" value="Sign Up">
