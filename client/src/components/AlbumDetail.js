@@ -27,8 +27,11 @@ function AlbumDetail({ currentUser }) {
             {isLoaded ?   
             <div className="album-detail">
                 <img src={album.album_art_url} alt={album.title} />
-                <h3 className="album-detail-title">{album.title}</h3>
-                <h4 className="album-detail-artist">{album.artist}</h4>
+                <h2 className="album-detail-title"><em>{album.title}</em></h2>
+                <h3 className="album-detail-artist">{album.artist}</h3>
+                <h4 className="album-detail-avg-rating">
+                    {album.average_rating !== 0.0 ? `Average rating: ${Math.round(album.average_rating * 10) / 10}/10` : 'no ratings yet' }
+                </h4>
                 <button onClick={() => handleLeaveReview()}>Leave a Review</button>
                 <div style={{width: "30%", margin: "20px auto"}}>
                     <ReviewList reviews={album.reviews} album={album} currentUser={currentUser} />
