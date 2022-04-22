@@ -29,10 +29,9 @@ function ReviewForm({ currentUser }) {
     }
     
     return (
-        <div>
-            {errors && errors.map(error => {
-                return <p style={{color:'red'}}>{error}</p>
-            })}
+        <div className="form-container">
+            <h2>Leave a Review</h2>
+            {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor="rating">Choose a rating:</label>
                 <select 

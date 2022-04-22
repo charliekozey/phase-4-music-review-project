@@ -32,18 +32,20 @@ export default function LogIn({ setCurrentUser }) {
     }
 
     return (
-        <div className="user-form">
+        <div className="form-container">
             <h2>Log In</h2>
             {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
             <form onSubmit={(e) => handleLogIn(e)}>
-                <label>
+                <label htmlFor='username'>
                     Username: 
-                    <input type="text" name="username" id="username" onChange={e => setUsername(e.target.value)} value={username}/>
                 </label>
-                <label>
+                <input type="text" name="username" id="username" onChange={e => setUsername(e.target.value)} value={username}/>
+                
+                <label htmlFor='password'>
                     Password: 
-                    <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)} value={password}/>
                 </label>
+                
+                <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)} value={password}/>
                 <input type="submit" value="Log In">
                 </input>
             </form>
