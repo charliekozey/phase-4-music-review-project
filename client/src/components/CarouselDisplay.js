@@ -26,7 +26,7 @@ function CarouselDisplay() {
     )
 
     return (
-        <Carousel autoPlay className="carousel">
+        <Carousel autoPlay={true} showStatus={false} interval={2000} infiniteLoop={true} className="carousel" showArrows={false} showIndicators={false}>
             {mapTop5}
         </Carousel>
     )
