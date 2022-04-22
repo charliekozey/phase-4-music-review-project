@@ -5,6 +5,7 @@ export default function LogIn({ setCurrentUser }) {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [errors, setErrors]= useState()
     const [confirmPassword, setConfirmPassword] = useState("")
     const history = useHistory();
 
@@ -18,21 +19,29 @@ export default function LogIn({ setCurrentUser }) {
         })
         .then(res => res.json())
         .then(data =>{
-            setCurrentUser(data)
-            history.goBack()
+            console.log(data)
+            if(data.errors){
+                setErrors(data.errors)
+            }else {
+                setCurrentUser(data)
+                history.push('/') 
+            }
+
         })
         .catch(error => console.log(error))
     }
 
     return (
-        <div>Log In
+        <div className="user-form">
+            <h2>Log In</h2>
+            {errors && errors.map(e => <h4 style={{color: "red"}}>{e}</h4>)}
             <form onSubmit={(e) => handleLogIn(e)}>
                 <label>
-                    Username:
+                    Username: 
                     <input type="text" name="username" id="username" onChange={e => setUsername(e.target.value)} value={username}/>
                 </label>
                 <label>
-                    Password:
+                    Password: 
                     <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)} value={password}/>
                 </label>
                 <input type="submit" value="Log In">
