@@ -7,6 +7,7 @@ export default function Searchbar() {
   const [albums, setAlbums] = useState([])
   const [search, setSearch] = useState('')
   const isMounted = useRef(false)
+  const debouncedSearch = useDebounce(search, 100)
 
   const renderResults = albums.map(album => {
       return (
@@ -28,28 +29,42 @@ export default function Searchbar() {
   }
 
   useEffect(() => {
-      console.log('in use effect here is search: ', search)
-      if(search !== ""){
-        console.log(JSON.stringify({q: search}))
+      if(debouncedSearch !== ""){
         fetch('/queried_albums', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({q: search})
+            body: JSON.stringify({q: debouncedSearch})
         })
         .then(res => res.json())
-        .then(data =>{
-            if(search == ""){
-                setAlbums([]) 
-            } else{
-                setAlbums(formatResponse(data))
-            }           
-        })
+        .then(data => {
+            setAlbums(formatResponse(data))
+        })          
         .catch(error => console.log(error))
-      }else{
+      } else{
         console.log("should be getting rid of search container")
-        setAlbums([])
+        setAlbums(() => [])
       }
-  }, [search])
+  }, [debouncedSearch])
+
+  //debounce hook
+  //only changes value in state after delay
+  
+  function useDebounce(value, delay) {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+    useEffect(
+      () => {
+        const handler = setTimeout(() => {
+          setDebouncedValue(value);
+        }, delay);
+
+        return () => {
+          clearTimeout(handler);
+        };
+      },
+      [value, delay]
+    );
+    return debouncedValue;
+  }
   
   return (
     <div className="search-container">
@@ -57,11 +72,9 @@ export default function Searchbar() {
             <form className="search-form">
                 <label>Search: </label>
                     <input type="text" name="query" id="query" onChange={e => setSearch(e.target.value)} value={search}/>
-                    {(albums.length > 0) &&
                         <div className="search-item-container">
                             {renderResults}
                         </div>
-                    }
             </form>
         </div>
     </div>
