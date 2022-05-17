@@ -15,7 +15,6 @@ export default function SearchBarItem({album, resetSearch}) {
       .catch(error => console.log(error))
   }
 
-  console.log(album.spotify_id)
   return (
       <div className="search-item" onClick={handleClick}>
           <img src={album.album_art_url} style={{height: '50px', width: '50px'}} alt={album.title}/>
